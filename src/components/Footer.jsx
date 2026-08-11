@@ -125,6 +125,15 @@ const Footer = () => {
                   Companies
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="group flex items-center text-gray-300 hover:text-white transition-all duration-300"
+                >
+                  <span className="w-2 h-2 bg-primary-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -175,13 +184,6 @@ const Footer = () => {
                   </span>
                 </Tooltip>
               ))}
-              <Link
-                to="/contact"
-                className="group relative hover:text-white transition-colors duration-300"
-              >
-                <span className="relative z-10">Contact Us</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </Link>
             </div>
             <div className="text-center md:text-right">
               <div className="text-gray-400 text-sm mb-2">
