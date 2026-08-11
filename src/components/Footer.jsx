@@ -1,4 +1,23 @@
 import { Link } from "react-router-dom";
+import { Tooltip } from "./Tooltip";
+
+const LEGAL_LINKS = [
+  {
+    label: "Privacy Policy",
+    description:
+      "개인정보 처리방침 - JobPortal이 회원의 개인정보를 수집·이용·보관하고 안전하게 보호하는 방법을 안내합니다.",
+  },
+  {
+    label: "Terms of Service",
+    description:
+      "서비스 이용약관 - JobPortal 서비스를 이용할 때 회원과 회사가 지켜야 할 권리와 의무를 규정합니다.",
+  },
+  {
+    label: "Cookie Policy",
+    description:
+      "쿠키 사용 방침 - 로그인 상태 유지와 서비스 개선을 위해 쿠키와 로컬 저장소를 사용하는 방식을 설명합니다.",
+  },
+];
 
 const Footer = () => {
   return (
@@ -141,18 +160,21 @@ const Footer = () => {
 
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-gray-400 mb-6 md:mb-0">
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Privacy Policy</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Terms of Service</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
-              <a className="group relative hover:text-white transition-colors duration-300">
-                <span className="relative z-10">Cookie Policy</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -inset-2"></div>
-              </a>
+              {LEGAL_LINKS.map((link, index) => (
+                <Tooltip
+                  key={link.label}
+                  text={link.description}
+                  align={index === 0 ? "start" : "center"}
+                >
+                  <span
+                    tabIndex={0}
+                    className="group relative cursor-help outline-none hover:text-white focus-visible:text-white transition-colors duration-300"
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-primary-600/20 to-purple-600/20 rounded-lg opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300 -inset-2"></span>
+                  </span>
+                </Tooltip>
+              ))}
               <Link
                 to="/contact"
                 className="group relative hover:text-white transition-colors duration-300"
