@@ -160,6 +160,15 @@ const Footer = () => {
                   Browse Candidates
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="group flex items-center text-gray-300 hover:text-white transition-all duration-300"
+                >
+                  <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
